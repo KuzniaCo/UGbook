@@ -1,5 +1,5 @@
-import { Prop, Schema, SchemaFactory, unique } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document, ObjectId } from 'mongoose';
 
 export type CommentDocument = Comment & Document;
 
@@ -7,8 +7,7 @@ export type CommentDocument = Comment & Document;
 export class Comment {
     
     @Prop({ required: true })
-    @unique()
-    authorId: string;
+    authorId: ObjectId
 
     @Prop({ required: true })
     content: string;
